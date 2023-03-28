@@ -18,27 +18,12 @@ import javax.inject.Singleton
 @Singleton
 class DogImagesRepository @Inject constructor(
     private val dogImagesDataSource:DogImagesNetworkDataSource
-){ //:DogImagesRepositoryInterface
+){
     suspend fun newRandomDogImage() : String{
        println("Hitting the Override function")
-        return dogImagesDataSource.fetchRandomDogImage().toString() //Here we need to fetch result
+        val result = dogImagesDataSource.fetchRandomDogImage()
+        println("Result is: " + result)
+        return result//Here we need to fetch result
     }
 }
-
-//@Module
-//@InstallIn(ViewModelComponent::class)
-//abstract class DogImagesModule{
-//
-//    @Binds
-//    abstract fun bindDogImagesInterface(
-//        dogImagesRepository:DogImagesRepository
-//    ): DogImagesRepositoryInterface
-//
-//    @ViewModelScoped
-//    @Provides
-//    fun provideModule() : DogImagesRepositoryInterface {
-//        return DogImagesRepository()
-//    }
-//    }
-//}
 

@@ -7,5 +7,5 @@ import dagger.hilt.android.components.ViewModelComponent
 
 
 interface DogImagesDataSource {
-    suspend fun fetchRandomDogImage(): Result<String>
+    suspend fun fetchRandomDogImage(): String//Result<String>
 }
